@@ -29,7 +29,7 @@ class Clients extends Component {
             <div className="col-md-6">
               <h2>
                 {' '}
-                <i className="fas fa-users" />Clients{' '}
+                <i className="fas fa-users" /> Clients{' '}
               </h2>
             </div>
 
@@ -58,7 +58,7 @@ class Clients extends Component {
                       to={`/client/${client.id}`}
                       className="btn btn-secondary btn-sm"
                     >
-                      <i className="fas fa-arrow-circle-right" />Details
+                      <i className="fas fa-arrow-circle-right" /> Details
                     </Link>
                   </td>
                   <td />
