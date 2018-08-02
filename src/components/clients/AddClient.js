@@ -19,7 +19,7 @@ class AddClient extends Component {
 
     const newClient = this.state;
 
-    const { firestore } = this.props;
+    const { firestore, history } = this.props;
 
     // If no balance, make 0
     if (newClient.balance === '') {
@@ -29,7 +29,7 @@ class AddClient extends Component {
     // returns a promise
     firestore
       .add({ collection: 'clients' }, newClient)
-      .then(() => this.props.history.push('/'));
+      .then(() => history.push('/'));
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -118,5 +118,9 @@ class AddClient extends Component {
     );
   }
 }
+
+AddClient.propTypes = {
+  firestore: PropTypes.object.isRequired
+};
 
 export default firestoreConnect()(AddClient);
