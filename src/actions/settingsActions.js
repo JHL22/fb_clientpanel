@@ -6,13 +6,13 @@ import {
 
 export const setDisableBalanceOnAdd = () => {
   return {
-    type: DISABLE_BALANCE_ON_EDIT
+    type: DISABLE_BALANCE_ON_ADD
   };
 };
 
 export const setDisableBalanceOnEdit = () => {
   return {
-    type: DISABLE_BALANCE_ON_ADD
+    type: DISABLE_BALANCE_ON_EDIT
   };
 };
 
