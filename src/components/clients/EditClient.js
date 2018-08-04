@@ -43,6 +43,7 @@ class EditClient extends Component {
 
   render() {
     const { client } = this.props;
+    const { disableBalanceOnEdit } = this.props.settings;
 
     if (client) {
       return (
@@ -113,6 +114,7 @@ class EditClient extends Component {
                     name="balance"
                     ref={this.balanceInput}
                     defaultValue={client.balance}
+                    disabled={disableBalanceOnEdit}
                   />
                 </div>
 
@@ -140,7 +142,9 @@ export default compose(
   firestoreConnect(props => [
     { collection: 'clients', storeAs: 'client', doc: props.match.params.id } // storeAs saves to state - specify document we want to grab by id - need props to get single client by id in the url
   ]),
-  connect(({ firestore: { ordered } }, props) => ({
-    client: ordered.client && ordered.client[0] // destructure from 'state.firestore.ordered.client' - array with first object in array
+  connect(({ firestore: { ordered }, settings }, props) => ({
+    client: ordered.client && ordered.client[0],
+    settings
+    // destructure from 'state.firestore.ordered.client' - array with first object in array
   }))
 )(EditClient);
